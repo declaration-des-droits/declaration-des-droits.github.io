@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIS Editor — 피처 속성</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/gmarket-sans@1.0.0/css/gmarket-sans.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="ratio-toolbar">
+    <label for="ratio-select">화면 비율</label>
+    <select id="ratio-select">
+      <option value="16:9"  selected>16 : 9</option>
+      <option value="16:10">16 : 10</option>
+      <option value="4:3">4 : 3</option>
+      <option value="3:2">3 : 2</option>
+      <option value="1:1">1 : 1</option>
+    </select>
+  </div>
+
+  <div class="slide-wrap">
+
+    <header class="slide-header">
+      <div class="header-left">
+        <div class="node-icon"><span></span></div>
+        <h1>GIS 피처 속성 편집기</h1>
+      </div>
+      <span class="header-tag" id="header-tag">NODE_EDIT · 피처 속성</span>
+    </header>
+
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="node"    id="tab-node">교차로 (NODE)</button>
+      <button class="tab-btn"        data-tab="station" id="tab-station">정류장 (STATION)</button>
+      <button class="tab-btn"        data-tab="link"    id="tab-link">링크 (LINK)</button>
+    </nav>
+
+    <div class="slide-body">
+
+      <aside class="left-col">
+        <div>
+          <p class="col-subtitle" id="lc-subtitle">교차로 (NODE)</p>
+          <p class="main-label"   id="lc-title"><strong>NODE</strong><br>속성 편집</p>
+          <p class="col-desc"     id="lc-desc"></p>
+        </div>
+        <div class="id-badge">
+          <span class="dot"></span>
+          <span id="lc-badge-label">NODE_ID</span>
+          &nbsp;·&nbsp;
+          <span class="id-val" id="lc-badge-value">9090807</span>
+        </div>
+      </aside>
+
+      <section class="right-col">
+        <div class="qgis-dialog">
+
+          <div class="dialog-titlebar">
+            <div class="dialog-title-left">
+              <div class="dialog-qgis-icon"></div>
+              <h2 id="dialog-title">NODE_EDIT - 피처 속성</h2>
+            </div>
+            <div class="dialog-win-btns">
+              <div class="win-btn">—</div>
+              <div class="win-btn">□</div>
+              <div class="win-btn close">✕</div>
+            </div>
+          </div>
+
+          <div class="dialog-content">
+            <div class="fields-grid" id="fields-grid">
+              </div>
+          </div>
+
+          <div class="dialog-bottom">
+            <div id="status-slot"></div>
+            <div class="btn-group">
+              <button class="btn btn-confirm" id="btn-confirm">확인</button>
+              <button class="btn btn-cancel"  id="btn-cancel">취소</button>
+            </div>
+          </div>
+
+          <div class="resizer resizer-r" data-dir="r"></div>
+          <div class="resizer resizer-b" data-dir="b"></div>
+          <div class="resizer resizer-br" data-dir="br"></div>
+
+        </div>
+      </section>
+
+    </div><footer class="slide-footer">
+      <span class="ft-text">GIS Node Management</span>
+      <div class="ft-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+      <span class="ft-text">© NODE_EDIT</span>
+    </footer>
+
+  </div><script src="js/app.js"></script>
+</body>
+</html>
