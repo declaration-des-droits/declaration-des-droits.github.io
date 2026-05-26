@@ -53,9 +53,11 @@ const PANELS = {
     tag: 'LINK_EDIT · 피처 속성',
     dialogTitle: 'LINK_EDIT - 피처 속성',
     fields: [
-      { label: 'LINK_ID', value: '9990000001', readonly: true },
+      { label: 'LINK_ID', value: '9990000001', readonly: true, isActive: true },
       { label: 'F_NODE', value: '9090807', readonly: true },
+      { label: 'F_NODE_NAME', value: '중앙역 1번출구', readonly: true },
       { label: 'T_NODE', value: '9090812', readonly: true, isSwapTarget: true },
+      { label: 'T_NODE_NAME', value: '시청앞 사거리', readonly: true },
     ]
   }
 };
@@ -207,10 +209,16 @@ function renderPanel(key) {
     const swapBtn = document.getElementById('swap-nodes');
     if (swapBtn) {
       swapBtn.addEventListener('click', () => {
-        // F_NODE (index 1), T_NODE (index 2)
-        const temp = STATE['link'][1];
-        STATE['link'][1] = STATE['link'][2];
-        STATE['link'][2] = temp;
+        // 1. F_NODE (index 1) ↔ T_NODE (index 3) 교환
+        const tempNodeId = STATE['link'][1];
+        STATE['link'][1] = STATE['link'][3];
+        STATE['link'][3] = tempNodeId;
+
+        // 2. F_NODE_NAME (index 2) ↔ T_NODE_NAME (index 4) 교환
+        const tempNodeName = STATE['link'][2];
+        STATE['link'][2] = STATE['link'][4];
+        STATE['link'][4] = tempNodeName;
+
         // 값 바뀐 후 화면 다시 렌더링
         renderPanel('link');
       });
